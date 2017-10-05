@@ -12,3 +12,6 @@ def factors(n):
         yield k
     for factor in factors_list:
         yield factor
+
+for fac in factors(100):
+    print fac
