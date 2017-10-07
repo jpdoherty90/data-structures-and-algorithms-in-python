@@ -1,12 +1,12 @@
 class CreditCard:
-
-    def __init__(self, customer, bank, acnt, limit):
+    
+    def __init__(self, customer, bank, acnt, limit, bal=0):
 
         self._customer = customer
         self._bank = bank
         self._account = acnt
         self._limit = limit
-        self._balance = 0
+        self._balance = bal
 
     def get_customer(self):
 
@@ -41,7 +41,10 @@ class CreditCard:
     def make_payment(self, amount):
         
         if isinstance(amount, (int, float)):
-            self._balance -= amount
+            if amount >= 0: 
+                self._balance -= amount
+            else:
+                raise ValueError("Payment amount cannot be negative")
         else:
             raise TypeError("Payment amount must be numeric")
 
