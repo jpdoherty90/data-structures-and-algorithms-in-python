@@ -26,6 +26,16 @@ class Vector:
         return result
 
 
+    # added a right addition method
+    def __radd__(self, other):
+        if len(self) != len(other):
+            raise ValueError('dimensions must agree')
+        result = Vector(len(self))
+        for j in range(len(self)):
+            result[j] = self[j] + other [j]
+        return result
+
+
     def __sub__(self, other):
         if len(self) != len(other):
             raise ValueError('dimensions must agree')
@@ -40,7 +50,7 @@ class Vector:
         for j in range(len(self)):
             result[j] = -self[j]
         return result
-    
+
 
     def __str__(self):
         return '<' + str(self._coords)[1:-1] + '>'
@@ -51,13 +61,8 @@ class Vector:
 v = Vector(5)
 v[1] = 23
 v[-1] = 45
-print(v[4])
-u = v + v
+u = v + [5, 3, 10, -2, 1]
 print(u)
-total = 0
-for entry in v:
-    total += entry
-print total
-w = v - u
+# testing right addition method:
+w = [5, 3, 10, -2, 1] + u
 print(w)
-print(-w)
