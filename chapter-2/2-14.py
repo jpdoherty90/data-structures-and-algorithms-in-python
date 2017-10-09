@@ -1,0 +1,1 @@
+#  need to review the dot product and summation notation for this one
