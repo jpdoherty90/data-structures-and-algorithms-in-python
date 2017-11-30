@@ -7,7 +7,7 @@ class ArithmeticProgression(Progression):
     def _advance(self):
         self._current += self._increment
 
-arithProg = ArithmeticProgression(120, 0)
+arithProg = ArithmeticProgression(128, 0)
 counter = 0
 
 # Note: I used 2**25 because 2**63 takes WAY too long.  Maybe that was part of the challenge
