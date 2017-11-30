@@ -1,3 +1,5 @@
+
+
 class Progression(object):
     def __init__(self, start=0):
         self._current = start
@@ -27,11 +29,24 @@ class FibonacciProgression(Progression):
         super(FibonacciProgression, self).__init__(first)
         self._prev = second - first
 
+    def __next__(self):
+        if self._current is None:
+            raise StopIteration()
+        else:
+            answer = self._current
+            self._advance()
+            return answer
+
+    def __iter__(self):
+        return self
+
     def _advance(self):
         self._prev, self._current = self._current, self._prev + self._current
 
 
 
 
-newFib = FibonacciProgression(2, 2)
-newFib.print_progression(8)
+
+fib = FibonacciProgression(2, 2)
+fib.print_progression(8)
+
