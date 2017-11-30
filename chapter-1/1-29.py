@@ -2,11 +2,13 @@
 
 letters = ['c', 'a', 't', 'd', 'o', 'g']
 
-def perms(arr, strings=[], i=0, next_string=""):
+# Think about using some kind of right shift
+
+def permutations(arr, resultStrings=[], i=0, next_string=""):
     if len(strings) == 726:
         return strings
-    if len(next_string) == 6:
-        strings.append(next_string)
+    if len(next_string) == len(arr):
+        resultStrings.append(next_string)
     
 
 
@@ -16,4 +18,4 @@ def perms(arr, strings=[], i=0, next_string=""):
 
 
 
-perms(letters)
+permutations(letters)
