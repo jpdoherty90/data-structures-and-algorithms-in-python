@@ -41,12 +41,17 @@ class Vector:
             result[j] = -self[j]
         return result
 
-    # adding mul method
     def __mul__(self, multiplier):
-        result = Vector(len(self))
-        for j in range(len(self)):
-            result[j] = self[j] * multiplier
-        return result
+        if type(multiplier) is Vector:
+            result = 0
+            for j in range(len(self)):
+                result += self[j] * multiplier[j]
+            return result
+        else:
+            result = Vector(len(self))
+            for j in range(len(self)):
+                result[j] = self[j] * multiplier
+            return result
 
     def __str__(self):
         return '<' + str(self._coords)[1:-1] + '>'
@@ -58,7 +63,6 @@ v = Vector(5)
 v[1] = 23
 v[-1] = 45
 u = v + [5, 3, 10, -2, 1]
-print(u)
-# testing multiplication method
-w = u * 3
-print w
+# Testing new multiplication
+print(u * 4)
+print(u * v)

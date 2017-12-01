@@ -1,8 +1,4 @@
-#  need to review the dot product and summation notation for this one
-
 class Vector:
-    
-    
     def __init__(self, d):
         self._coords = [0] * d
 
